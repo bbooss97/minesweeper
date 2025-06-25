@@ -4,6 +4,7 @@ import keyboard
 import time
 import os
 import sys
+import pyautogui
 from minesweeper_clicker import click_revealed_numbers # Importa la funzione che abbiamo già creato
 
 # --- Funzioni per i tasti rapidi ---
@@ -11,8 +12,15 @@ from minesweeper_clicker import click_revealed_numbers # Importa la funzione che
 def run_clicker():
     print(f"[{time.strftime('%H:%M:%S')}] Tasto 'q' premuto. Avvio dello script di click...")
     try:
+        # Salva la posizione iniziale del mouse
+        original_pos = pyautogui.position()
+        print(f"Posizione iniziale del mouse salvata: {original_pos}")
+
         click_revealed_numbers()
-        print(f"[{time.strftime('%H:%M:%S')}] Script completato. In attesa di nuovi input...")
+
+        # Ripristina la posizione del mouse
+        pyautogui.moveTo(original_pos[0], original_pos[1])
+        print(f"[{time.strftime('%H:%M:%S')}] Script completato. Posizione del mouse ripristinata. In attesa di nuovi input...")
     except Exception as e:
         print(f"Si è verificato un errore durante l'esecuzione dello script: {e}")
 
