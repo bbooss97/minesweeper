@@ -161,3 +161,4 @@ Questo progetto è distribuito sotto licenza MIT. Vedi il file LICENSE per i det
 ---
 
 **Buon divertimento con Minesweeper! 💣🎮**
+
